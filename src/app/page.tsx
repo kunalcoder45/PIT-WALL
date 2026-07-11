@@ -13,11 +13,10 @@ import {
 import CountdownWrapper from "@/components/CountdownWrapper";
 import { ArrowRight, MapPin, Trophy, Flag, Thermometer, History, CalendarDays } from "lucide-react";
 import CalendarStrip from "@/components/CalendarFilter";
-import GpTelemetryExplorer from "@/components/GpTelemetryExplorer";
+// import GpTelemetryExplorer from "@/components/GpTelemetryExplorer";
 import BroadcastTicker from "@/components/BroadcastTicker";
 import WeekendScheduleStrip, { SessionWithStatus } from "@/components/WeekendScheduleStrip";
 import LastRaceRecap from "@/components/LastRaceRecap";
-import PaddockChronicle from "@/components/PaddockChronicle";
 
 
 export const revalidate = 1800;
@@ -299,13 +298,13 @@ export default async function Home() {
       </section>
 
       {/* LAP-BY-LAP TELEMETRY */}
-      <section className="mx-auto max-w-6xl px-5 sm:px-8 py-10">
+      {/* <section className="mx-auto max-w-6xl px-5 sm:px-8 py-10">
         <h2 className="font-display font-extrabold text-2xl uppercase tracking-tight mb-4 flex items-center gap-2">
           <Trophy size={20} className="text-red" />
           Lap-by-Lap Telemetry
         </h2>
         <GpTelemetryExplorer meetings={meetings} />
-      </section>
+      </section> */}
       {/* 
       <PaddockChronicle
         entries={[

@@ -14,7 +14,7 @@ export default function PrivacyPage() {
             About This Project
           </h2>
           <p className="mt-2">
-            PITWALL is an unofficial Formula racing fan project created to
+            PITWALLHUB is an unofficial Formula racing fan project created to
             provide race information, telemetry visualization, schedules,
             standings, and other motorsport related features.
           </p>
@@ -68,7 +68,7 @@ export default function PrivacyPage() {
             Disclaimer
           </h2>
           <p className="mt-2">
-            PITWALL is an independent fan project and is not affiliated with,
+            PITWALLHUB is an independent fan project and is not affiliated with,
             endorsed by, or connected to Formula One, FIA, Formula One
             Management, or any official motorsport organization.
           </p>

@@ -12,7 +12,7 @@ import "@fontsource/saira-condensed/800.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "PIT WALL — F1 Season Tracker",
+  title: "PIT WALL HUB — F1 Season Tracker",
   description: "Race calendar, circuits, qualifying, results and standings — powered by OpenF1.",
 };
 
@@ -28,8 +28,11 @@ export default function RootLayout({
         <header className="border-b border-line/80 bg-panel/60 backdrop-blur sticky top-0 z-30">
           <div className="mx-auto max-w-6xl px-5 sm:px-8 flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-2 group">
-              <span className="font-display font-800 text-2xl tracking-tight text-text">
+              <span className="font-display font-extrabold text-2xl tracking-tight text-text flex items-center">
                 PIT<span className="text-red">WALL</span>
+                <span className="ml-1 rounded-md bg-yellow-400 px-2 py-0.5 text-lg font-bold uppercase tracking-wide text-black shadow-sm">
+                  HUB
+                </span>
               </span>
             </Link>
             <nav className="flex items-center gap-1 font-display text-[15px] tracking-wide uppercase">

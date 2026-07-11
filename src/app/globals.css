@@ -39,6 +39,7 @@ body {
 .font-display {
   font-family: var(--font-display);
 }
+
 .font-mono {
   font-family: var(--font-mono);
 }
@@ -46,20 +47,26 @@ body {
 /* Diagonal racing-stripe divider used sparingly as the signature motif */
 .stripe-divider {
   height: 4px;
-  background: repeating-linear-gradient(
-    -45deg,
-    var(--red) 0px,
-    var(--red) 10px,
-    transparent 10px,
-    transparent 20px
-  );
+  background: repeating-linear-gradient(-45deg,
+      var(--red) 0px,
+      var(--red) 10px,
+      transparent 10px,
+      transparent 20px);
   opacity: 0.9;
 }
 
 @keyframes pulse-live {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.35; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+  }
 }
+
 .pulse-live {
   animation: pulse-live 1.4s ease-in-out infinite;
 }
@@ -70,52 +77,77 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .pulse-live { animation: none; }
+  .pulse-live {
+    animation: none;
+  }
 }
 
 
 @keyframes track-flow-dash {
-  to { stroke-dashoffset: -20; }
+  to {
+    stroke-dashoffset: -20;
+  }
 }
+
 .track-flow {
   animation: track-flow-dash 1.2s linear infinite;
 }
 
 @keyframes scan-sweep {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
 }
+
 .track-scan {
-  background: linear-gradient(90deg, transparent, rgba(225,6,0,0.5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(225, 6, 0, 0.5), transparent);
   width: 40%;
   animation: scan-sweep 4s ease-in-out infinite;
 }
 
 @keyframes telemetry-trace-flow {
-  to { stroke-dashoffset: -520; }
+  to {
+    stroke-dashoffset: -520;
+  }
 }
+
 .telemetry-track-trace {
   animation: telemetry-trace-flow 2.4s linear infinite;
 }
 
 @keyframes telemetry-glow-pulse {
-  0%, 100% { opacity: 0.5; r: 4; }
-  50% { opacity: 1; r: 6; }
+
+  0%,
+  100% {
+    opacity: 0.5;
+    r: 4;
+  }
+
+  50% {
+    opacity: 1;
+    r: 6;
+  }
 }
+
 .telemetry-car-glow {
   animation: telemetry-glow-pulse 0.6s ease-in-out infinite;
 }
 
 @keyframes radar-sweep-rotate {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
+
 .telemetry-radar {
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    rgba(225, 6, 0, 0.35) 15deg,
-    transparent 40deg
-  );
+  background: conic-gradient(from 0deg,
+      transparent 0deg,
+      rgba(225, 6, 0, 0.35) 15deg,
+      transparent 40deg);
   animation: radar-sweep-rotate 2.5s linear infinite;
 }
 
@@ -146,40 +178,76 @@ body {
 }
 
 @keyframes ticker-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
+
 .ticker-track {
   animation: ticker-scroll 28s linear infinite;
   will-change: transform;
 }
+
 .ticker-track:hover {
   animation-play-state: paused;
 }
+
 /* ── Pit Wall monitor bank — each screen scans independently ── */
 @keyframes monitor-scan {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
 }
+
 .monitor-scan-line {
   animation: monitor-scan 1.8s linear infinite;
 }
 
 @keyframes monitor-flicker {
-  0%, 100% { opacity: 1; }
-  92% { opacity: 1; }
-  94% { opacity: 0.4; }
-  96% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  92% {
+    opacity: 1;
+  }
+
+  94% {
+    opacity: 0.4;
+  }
+
+  96% {
+    opacity: 1;
+  }
 }
+
 .monitor-flicker {
   animation: monitor-flicker 4s ease-in-out infinite;
 }
 
 /* Radio transmission waveform — bars pulse like an audio signal being sent */
 @keyframes radio-wave {
-  0%, 100% { transform: scaleY(0.2); }
-  50% { transform: scaleY(1); }
+
+  0%,
+  100% {
+    transform: scaleY(0.2);
+  }
+
+  50% {
+    transform: scaleY(1);
+  }
 }
+
 .radio-bar {
   animation: radio-wave 0.9s ease-in-out infinite;
   transform-origin: center;
@@ -187,18 +255,32 @@ body {
 
 /* Signal strength dots, sequential pulse suggesting an active uplink */
 @keyframes uplink-dot {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
+
 .uplink-dot {
   animation: uplink-dot 1.2s ease-in-out infinite;
 }
 
 /* Typewriter reveal for the connecting message */
 @keyframes typewriter-reveal {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
 }
+
 .typewriter-text {
   display: inline-block;
   overflow: hidden;
@@ -207,20 +289,226 @@ body {
 }
 
 @keyframes cursor-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
+
 .typewriter-cursor {
   animation: cursor-blink 0.8s step-end infinite;
 }
 
 /* Header underline sweep */
 @keyframes header-sweep {
-  0% { transform: scaleX(0); transform-origin: left; }
-  50% { transform: scaleX(1); transform-origin: left; }
-  50.1% { transform-origin: right; }
-  100% { transform: scaleX(0); transform-origin: right; }
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  50.1% {
+    transform-origin: right;
+  }
+
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
 }
+
 .loader-header-sweep {
   animation: header-sweep 2.4s ease-in-out infinite;
+}
+
+/* ── Line-load / draw-in animations for the editorial section ── */
+@keyframes line-draw {
+  from {
+    stroke-dashoffset: var(--line-length, 400);
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-draw-svg path,
+.line-draw-svg line {
+  stroke-dasharray: var(--line-length, 400);
+  stroke-dashoffset: var(--line-length, 400);
+}
+
+.line-draw-svg.is-visible path,
+.line-draw-svg.is-visible line {
+  animation: line-draw 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes underline-grow {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.underline-reveal {
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.underline-reveal.is-visible {
+  animation: underline-grow 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-rise {
+  opacity: 0;
+}
+
+.fade-rise.is-visible {
+  animation: fade-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+
+
+/* Hero editorial animation */
+
+.hero-title {
+  animation: heroReveal 1s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+
+.hero-racing-line {
+  width: 0;
+  animation: racingLine 1.5s cubic-bezier(.65, 0, .35, 1) forwards;
+}
+
+
+@keyframes racingLine {
+
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+
+}
+
+
+
+.fade-rise {
+  opacity: 0;
+  animation: fadeRise .8s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+
+@keyframes fadeRise {
+
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+
+.hero-line {
+  transform-origin: left;
+  animation: lineGrow 1s ease forwards;
+  animation-delay: .8s;
+  transform: scaleX(0);
+}
+
+
+@keyframes lineGrow {
+
+  to {
+    transform: scaleX(1);
+  }
+
+}
+
+
+
+.circuit-card {
+  animation: cardFloat 5s ease-in-out infinite;
+}
+
+
+@keyframes cardFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+}
+
+
+
+.circuit-progress {
+
+  width: 0;
+
+  animation:
+    progressGrow 2s ease forwards;
+
+}
+
+
+@keyframes progressGrow {
+
+  to {
+    width: 100%;
+  }
+
 }

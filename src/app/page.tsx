@@ -17,6 +17,7 @@ import GpTelemetryExplorer from "@/components/GpTelemetryExplorer";
 import BroadcastTicker from "@/components/BroadcastTicker";
 import WeekendScheduleStrip, { SessionWithStatus } from "@/components/WeekendScheduleStrip";
 import LastRaceRecap from "@/components/LastRaceRecap";
+import PaddockChronicle from "@/components/PaddockChronicle";
 
 
 export const revalidate = 1800;
@@ -91,7 +92,7 @@ export default async function Home() {
   return (
     <div>
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-line">
+      {/* <section className="relative overflow-hidden border-b border-line">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 py-12 sm:py-16">
           <div className="flex flex-col lg:flex-row gap-10 lg:items-center">
             <div className="flex-1 min-w-0">
@@ -141,8 +142,103 @@ export default async function Home() {
             )}
           </div>
         </div>
-      </section>
+      </section> */}
+      <section className="relative overflow-hidden border-b border-line">
+        {/* Animated racing line */}
+        <div className="absolute top-0 left-0 h-[1px] w-full overflow-hidden">
+          <div className="hero-racing-line h-full bg-red" />
+        </div>
 
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 py-14 sm:py-20">
+          <div className="flex flex-col lg:flex-row gap-12 lg:items-center">
+
+            <div className="flex-1 min-w-0">
+
+              <p className="fade-rise font-mono text-xs uppercase tracking-[0.3em] text-red mb-4">
+                {nextMeeting && meetingStatus(nextMeeting) === "live"
+                  ? "Session Live Now"
+                  : `Next Up · Round ${meetings.indexOf(nextMeeting) + 1} of ${meetings.length}`}
+              </p>
+
+
+              <h1
+                className="hero-title text-6xl sm:text-7xl leading-[0.9] tracking-tight text-white"
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontWeight: 600,
+                }}
+              >
+                {nextMeeting?.meeting_name ?? "Season complete"}
+              </h1>
+
+
+              <p
+                className="mt-5 flex items-center gap-2 text-sm sm:text-base text-text-muted fade-rise"
+                style={{ animationDelay: "0.2s" }}
+              >
+                <MapPin size={16} className="text-red" />
+                {nextMeeting?.circuit_short_name}, {nextMeeting?.location},{" "}
+                {nextMeeting?.country_name}
+              </p>
+
+
+              <div className="mt-4 h-[1px] w-24 bg-red hero-line" />
+
+
+              {raceSession && (
+                <div className="mt-8 fade-rise" style={{ animationDelay: "0.35s" }}>
+                  <CountdownWrapper targetIso={raceSession.date_start} />
+
+                  <p className="mt-3 text-xs sm:text-sm text-text-muted font-mono uppercase tracking-wider">
+                    Race start · {fmtDate(raceSession.date_start)} ·{" "}
+                    {fmtTime(raceSession.date_start)}
+                  </p>
+                </div>
+              )}
+
+
+              {nextMeeting && (
+                <Link
+                  href={`/races/${nextMeeting.meeting_key}`}
+                  className="mt-8 inline-flex items-center gap-3 font-display uppercase tracking-widest text-sm bg-red text-white px-6 py-3 rounded-sm hover:bg-red/90 transition-all group">
+                  Weekend Schedule
+                  <ArrowRight
+                    size={16}
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
+                </Link>
+              )}
+
+            </div>
+
+
+
+            {nextMeeting?.circuit_image && (
+              <div className="
+          relative w-full lg:w-[400px]
+          h-60
+          bg-panel
+          border border-line
+          rounded-lg
+          overflow-hidden
+          circuit-card
+        ">
+                <Image
+                  src={nextMeeting.circuit_image}
+                  alt={nextMeeting.circuit_short_name}
+                  fill
+                  className="object-contain p-8"
+                  unoptimized
+                  priority
+                />
+                <div className="absolute bottom-0 left-0 h-[2px] bg-red circuit-progress" />
+
+              </div>
+            )}
+
+          </div>
+        </div>
+      </section>
       {/* LIVE BROADCAST TICKER */}
       <BroadcastTicker items={tickerItems} />
 
@@ -210,6 +306,29 @@ export default async function Home() {
         </h2>
         <GpTelemetryExplorer meetings={meetings} />
       </section>
+      {/* 
+      <PaddockChronicle
+        entries={[
+          {
+            round: "Round 01",
+            headline: "A season begins under the lights",
+            excerpt:
+              "Every championship starts the same way — five red lights, twenty engines, and a grid full of promises yet to be kept. This year's opener set the tone for what's to come.",
+          },
+          {
+            round: "Round 04",
+            headline: "The gap that wasn't supposed to close",
+            excerpt:
+              "Nobody expected the midfield to bite this hard, this early. What looked like a comfortable lead in March had shrunk to fractions of a second by the fourth round.",
+          },
+          {
+            round: "Round 09",
+            headline: "A wet Sunday changes everything",
+            excerpt:
+              "Rain has a way of rewriting the script. Strategy calls made in the garage on Saturday night suddenly meant nothing once the sky opened up.",
+          },
+        ]}
+      /> */}
 
       {/* CALENDAR STRIP */}
       <section className="mx-auto max-w-6xl px-5 sm:px-8 py-10">

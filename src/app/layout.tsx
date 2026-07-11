@@ -9,6 +9,10 @@ import "@fontsource/jetbrains-mono/700.css";
 import "@fontsource/saira-condensed/600.css";
 import "@fontsource/saira-condensed/700.css";
 import "@fontsource/saira-condensed/800.css";
+import "@fontsource/playfair-display/400.css";
+import "@fontsource/playfair-display/500-italic.css";
+import "@fontsource/playfair-display/600.css";
+import "@fontsource/playfair-display/700.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -25,21 +29,27 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <body className="min-h-full flex flex-col antialiased">
         <div className="stripe-divider" />
-        <header className="border-b border-line/80 bg-panel/60 backdrop-blur sticky top-0 z-30">
-          <div className="mx-auto max-w-6xl px-5 sm:px-8 flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center gap-2 group">
-              <span className="font-display font-extrabold text-2xl tracking-tight text-text flex items-center">
+        <header className="border-b border-line/80 bg-panel/60 backdrop-blur sticky top-0 z-30 overflow-hidden">
+          <div className="mx-auto max-w-6xl px-4 sm:px-8 flex items-center justify-between h-16">
+
+            {/* Logo */}
+            <Link href="/" className="flex items-center shrink-0">
+              <span className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-text flex items-center">
                 PIT<span className="text-red">WALL</span>
-                <span className="ml-1 rounded-md bg-yellow-400 px-2 py-0.5 text-lg font-bold uppercase tracking-wide text-black shadow-sm">
+                <span className="ml-1 rounded-md bg-yellow-400 px-1.5 sm:px-2 py-0.5 text-sm sm:text-lg font-bold uppercase tracking-wide text-black shadow-sm">
                   HUB
                 </span>
               </span>
             </Link>
-            <nav className="flex items-center gap-1 font-display text-[15px] tracking-wide uppercase">
+
+
+            {/* Navigation */}
+            <nav className="flex items-center gap-0.5 sm:gap-1 font-display text-xs sm:text-[15px] tracking-wide uppercase">
               <NavLink href="/races">Calendar</NavLink>
               <NavLink href="/standings">Standings</NavLink>
               <NavLink href="/teams">Teams</NavLink>
             </nav>
+
           </div>
         </header>
 

@@ -167,7 +167,7 @@ export default function RaceLoader() {
       <div className="relative flex flex-col items-center px-6">
         {/* Wordmark */}
         <div className="relative mb-1">
-          <p className="font-display text-2xl font-extrabold tracking-tight text-white">
+          <p className="font-display text-2xl font-extrabold tracking-tight text-white mb-1.5">
             PIT<span className="text-red">WALL</span>
             <span className="ml-1 rounded-md bg-yellow-400 px-2 py-0.5 text-lg font-bold uppercase tracking-wide text-black shadow-sm">
               HUB

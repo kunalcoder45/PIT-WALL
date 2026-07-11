@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+:root {
+  --void: #0a0a0b;
+  --panel: #131417;
+  --panel-2: #1a1c20;
+  --line: #26282d;
+  --text: #f2f1ec;
+  --text-muted: #8d8f94;
+  --red: #e10600;
+  --amber: #f5b700;
+  --green: #1fb15a;
+}
+
+@theme inline {
+  --color-void: var(--void);
+  --color-panel: var(--panel);
+  --color-panel-2: var(--panel-2);
+  --color-line: var(--line);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-red: var(--red);
+  --color-amber: var(--amber);
+  --color-green: var(--green);
+  --font-display: "Saira Condensed", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+body {
+  background-color: var(--void);
+  color: var(--text);
+  font-family: var(--font-body);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(225, 6, 0, 0.08), transparent),
+    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.012) 0px, rgba(255, 255, 255, 0.012) 1px, transparent 1px, transparent 3px);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Diagonal racing-stripe divider used sparingly as the signature motif */
+.stripe-divider {
+  height: 4px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--red) 0px,
+    var(--red) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  opacity: 0.9;
+}
+
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.pulse-live {
+  animation: pulse-live 1.4s ease-in-out infinite;
+}
+
+::selection {
+  background: var(--red);
+  color: white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-live { animation: none; }
+}
+
+
+@keyframes track-flow-dash {
+  to { stroke-dashoffset: -20; }
+}
+.track-flow {
+  animation: track-flow-dash 1.2s linear infinite;
+}
+
+@keyframes scan-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.track-scan {
+  background: linear-gradient(90deg, transparent, rgba(225,6,0,0.5), transparent);
+  width: 40%;
+  animation: scan-sweep 4s ease-in-out infinite;
+}
+
+@keyframes telemetry-trace-flow {
+  to { stroke-dashoffset: -520; }
+}
+.telemetry-track-trace {
+  animation: telemetry-trace-flow 2.4s linear infinite;
+}
+
+@keyframes telemetry-glow-pulse {
+  0%, 100% { opacity: 0.5; r: 4; }
+  50% { opacity: 1; r: 6; }
+}
+.telemetry-car-glow {
+  animation: telemetry-glow-pulse 0.6s ease-in-out infinite;
+}
+
+@keyframes radar-sweep-rotate {
+  to { transform: rotate(360deg); }
+}
+.telemetry-radar {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(225, 6, 0, 0.35) 15deg,
+    transparent 40deg
+  );
+  animation: radar-sweep-rotate 2.5s linear infinite;
+}
+
+/* Custom Red Scrollbar */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e10600;
+  border-radius: 0px;
+  border: 2px solid #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff1e1e;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #e10600 #0a0a0a;
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.ticker-track {
+  animation: ticker-scroll 28s linear infinite;
+  will-change: transform;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+/* ── Pit Wall monitor bank — each screen scans independently ── */
+@keyframes monitor-scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.monitor-scan-line {
+  animation: monitor-scan 1.8s linear infinite;
+}
+
+@keyframes monitor-flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  94% { opacity: 0.4; }
+  96% { opacity: 1; }
+}
+.monitor-flicker {
+  animation: monitor-flicker 4s ease-in-out infinite;
+}
+
+/* Radio transmission waveform — bars pulse like an audio signal being sent */
+@keyframes radio-wave {
+  0%, 100% { transform: scaleY(0.2); }
+  50% { transform: scaleY(1); }
+}
+.radio-bar {
+  animation: radio-wave 0.9s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Signal strength dots, sequential pulse suggesting an active uplink */
+@keyframes uplink-dot {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+.uplink-dot {
+  animation: uplink-dot 1.2s ease-in-out infinite;
+}
+
+/* Typewriter reveal for the connecting message */
+@keyframes typewriter-reveal {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.typewriter-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter-reveal 2.2s steps(28, end) infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.typewriter-cursor {
+  animation: cursor-blink 0.8s step-end infinite;
+}
+
+/* Header underline sweep */
+@keyframes header-sweep {
+  0% { transform: scaleX(0); transform-origin: left; }
+  50% { transform: scaleX(1); transform-origin: left; }
+  50.1% { transform-origin: right; }
+  100% { transform: scaleX(0); transform-origin: right; }
+}
+.loader-header-sweep {
+  animation: header-sweep 2.4s ease-in-out infinite;
+}
